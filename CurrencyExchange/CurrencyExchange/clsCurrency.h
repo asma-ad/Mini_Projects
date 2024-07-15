@@ -29,6 +29,20 @@ private:
 
 	}
 
+	//---Convert currency object to line---
+	static string _ConverCurrencyObjectToLine(clsCurrency currency, string seperator = "#//#")
+	{
+
+		string stCurrencyRecord = "";
+		stCurrencyRecord += currency.Country() + seperator;
+		stCurrencyRecord += currency.currencyCode() + seperator;
+		stCurrencyRecord += currency.currencyName() + seperator;
+		stCurrencyRecord += to_string(currency.Rate());
+
+		return stCurrencyRecord;
+
+	}
+
 	//---Load currency data from file---
 	static vector<clsCurrency> _LoadCurrenciesDataFromFile() {
 
@@ -50,6 +64,25 @@ private:
 		return vCurrency;
 	}
 
+	//---Save currency data to a file---
+	static void _SaveCurrencyDataToFile(vector <clsCurrency> vCurrency)
+	{
+		fstream myFile;
+		myFile.open("Currencies.txt", ios::out);
+
+		string line;
+		if (myFile.is_open())
+		{
+			for (clsCurrency C : vCurrency)
+			{
+				line = _ConverCurrencyObjectToLine(C);
+				myFile << line << endl;
+			}
+			myFile.close();
+		}
+
+	}
+
 	//---Update---
 	void _Update() {
 
@@ -63,6 +96,7 @@ private:
 				break;
 			}
 		}
+		_SaveCurrencyDataToFile(vCurrency);
 	}
 
 	//---Get empty object---

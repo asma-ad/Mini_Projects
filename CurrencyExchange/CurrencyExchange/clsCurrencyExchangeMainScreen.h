@@ -4,6 +4,7 @@
 #include "clsInputValidate.h"
 #include "clsCurrenciesListScreen.h"
 #include "clsFindCurrencyScreen.h"
+#include "clsUpdateCurrencyRateScreen.h"
 
 using namespace std;
 
@@ -36,14 +37,14 @@ private:
 		clsFindCurrencyScreen::showFindCurrencyScreen();
 	}
 
+	static void _ShowUpdateRateScreen() {
+		clsUpdateCurrencyRateScreen::showUpdateRateScreen();
+	}
+
 	static void _ShowCurrencyCalculatorScreen() {
 		cout << "\nWork on it\n";
 	}
-
-	static void _ShowUpdateRateScreen() {
-		cout << "\nWork on it\n";
-	}
-
+	
 	static void _PerformCurrenciesMenuOption(enOption option) {
 
 		switch (option)

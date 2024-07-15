@@ -27,7 +27,7 @@ private:
 	}
 
 	static void _ShowCurrencyListScreen() {
-		clsCurrenciesListScreen::showListUsers();
+		clsCurrenciesListScreen::showCurrencyList();
 	}
 
 	static void _ShowFindCurrencyScreen() {

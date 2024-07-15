@@ -20,9 +20,9 @@ private:
 
 public:
 
-	static void showListUsers() {
+	static void showCurrencyList() {
 
-		// get users
+		// get currenies
 		vector <clsCurrency> vCurrency = clsCurrency::getCurrenciesList();
 
 		// Print the main header
@@ -41,10 +41,10 @@ public:
 		cout << "\n\n";
 		cout << setw(15) << left << "" << "-------------------------------------------------------------------------------------------------------------------\n\n";
 
-		// check if there no user
+		// check if there no currenies
 		if (vCurrency.size() == 0)
 		{
-			cout << "\n\n\t\t\t\t\t\tNo users available in the system!\n";
+			cout << "\n\n\t\t\t\t\t\tNo currenies available in the system!\n";
 			cout << "\n----------------------------------------------------------------------------------------------------------------------------------------\n";
 
 		}

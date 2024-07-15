@@ -26,6 +26,19 @@ private:
 		
 	}
 
+	static void _ShowResult(clsCurrency currency) {
+
+		if (!currency.isEmpty())
+		{
+			cout << "\nFound!\n";
+			_PrintCuurency(currency);
+		}
+		else
+		{
+			cout << "\nNot found!\n";
+		}
+	}
+
 public:
 
 	static void showFindCurrencyScreen() {
@@ -45,19 +58,8 @@ public:
 			 string code;
 			 cout << "\nPlease enter currency code: ";
 			 code = clsInputValidate::readString();
-
 			 clsCurrency currencyByCode = clsCurrency::findByCode(code);
-
-			 if (currencyByCode.isCurrencyExsit(code))
-			 {
-				 cout << "\nFound!\n";
-				 _PrintCuurency(currencyByCode);
-			 }
-			 else
-			 {
-				 cout << "\nNot found!\n";
-			 }
-
+			 _ShowResult(currencyByCode);
 		 }
 
 		 // Find by country
@@ -66,18 +68,8 @@ public:
 			 string country;
 			 cout << "\nPlease enter country name: ";
 			 country = clsInputValidate::readString();
-
 			 clsCurrency currencyByCountry = clsCurrency::findByCountry(country);
-
-			 if (currencyByCountry.isCurrencyExsit(currencyByCountry.currencyCode()))
-			 {
-				 cout << "\nFound!\n";
-				 _PrintCuurency(currencyByCountry);
-			 }
-			 else
-			 {
-				 cout << "\nNot found!\n";
-			 }
+			 _ShowResult(currencyByCountry);
 		 }
 	}
 

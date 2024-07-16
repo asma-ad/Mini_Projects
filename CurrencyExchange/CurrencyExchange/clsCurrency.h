@@ -205,4 +205,25 @@ public:
 		return _LoadCurrenciesDataFromFile();
 	}
 
+	//---Conver currency to USD---
+	float converToUSD(float amount) {
+
+		return (float)(amount / Rate());
+
+	}
+
+	//---Conver currency to other currency---
+	float converToOtherCurrency(float amount, clsCurrency currency_2) {
+
+		//	return (float)((amount / Rate()) * currency_2.Rate() );
+
+		float amontInUSD = converToUSD(amount);
+
+		if (currency_2.currencyCode() == "USD")
+		{
+			return amontInUSD;
+		}
+
+		return (float)(amontInUSD * currency_2.Rate());
+	}
 };
